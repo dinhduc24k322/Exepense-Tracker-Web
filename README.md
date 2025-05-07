@@ -1,7 +1,3 @@
-Dưới đây là README được tạo theo mẫu bạn cung cấp, dựa trên nội dung về ứng dụng Expense Tracker:
-
----
-
 # Trang web theo dõi chi tiêu Full Stack (MERN)
 
 ## Mục đích
