@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AuthLayout from "../../components/layouts/AuthLayout";
 import Input from "../../components/Inputs/Input";
 import { Link, useNavigate } from "react-router-dom";
+import { validateEmail } from "../../utils/helper";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -11,7 +12,24 @@ const Login = () => {
   const navigate = useNavigate();
 
   //Handle Login Form Submit
-  const handleLogin = async (e) => {};
+  const handleLogin = async (e) => {
+    e.preventDefault();
+        
+    if (!validateEmail(email)) {
+      setError("Please enter a valid email adress.");
+      return;
+    }
+
+    if (!password) {
+      setError("Please enter the password");
+      return;
+    }
+
+    setError("");
+
+    //Login API Call
+
+  };
   return (
     <AuthLayout>
       <div className="lg:w-[70%] h-3/4 md:h-full flex flex-col justify-center">

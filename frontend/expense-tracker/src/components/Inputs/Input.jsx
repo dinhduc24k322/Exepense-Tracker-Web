@@ -14,7 +14,7 @@ const Input = ({ value, onChange, placeholder, label, type }) => {
       <div className="input-box">
         <input
           type={
-            type == "password" ? (showPassword ? "text" : "password") : type
+            type == 'password' ? (showPassword ? 'text' : 'password') : type
           }
           placeholder={placeholder}
           className="w-full bg-transparent outline-none"
@@ -27,14 +27,14 @@ const Input = ({ value, onChange, placeholder, label, type }) => {
             {showPassword ? (
               <FaRegEye
                 size={22}
-                className="text-primary cursor-pointer"
-                onClick={() => toggleShowPassword}
+                className="text-purple-600 cursor-pointer"
+                onClick={() => toggleShowPassword()}
               />
             ) : (
               <FaRegEyeSlash
                 size={22}
                 className="text-slate-400 cursor-pointer"
-                onClick={() => toggleShowPassword}
+                onClick={() => toggleShowPassword()}
               />
             )}
           </>
