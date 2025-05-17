@@ -18,9 +18,12 @@
 
 ## Công nghệ sử dụng
 
-* [https://reactjs.org/](https://reactjs.org/)
-* [https://expressjs.com/](https://expressjs.com/)
-* [https://nodejs.org/](https://nodejs.org/)
-* [https://www.mongodb.com/](https://www.mongodb.com/)
-* [https://www.chartjs.org/](https://www.chartjs.org/)
-* [https://jwt.io/](https://jwt.io/)
+* [Reactjs](https://reactjs.org/)
+* [Expressjs](https://expressjs.com/)
+* [Nodejs](https://nodejs.org/)
+* [Mongodb](https://www.mongodb.com/)
+* [Chartjs](https://www.chartjs.org/)
+* [JSON Web Token](https://jwt.io/)
+* [TailwindCSS](https://v2.tailwindcss.com/docs)
+* [Postman](https://learning.postman.com/docs/introduction/overview/)
+
