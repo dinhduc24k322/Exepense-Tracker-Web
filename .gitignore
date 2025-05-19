@@ -1,0 +1,6 @@
+# Bo qua bien moi truong
+.env
+node_modules/
+*.log
+.DS_Store
+.vscode/
