@@ -31,13 +31,30 @@ exports.addIncome = async (req, res) => {
 // Get All Income Source
 exports.getAllIncome = async (req, res) => {
   const userId = req.user.id;
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+  const skip = (page - 1) * limit;
+
   try {
-    const income = await Income.find({ userId }).sort({ date: -1 }).lean();
-    res.json(income);
+    const incomes = await Income.find({ userId })
+      .sort({ date: -1 })
+      .skip(skip)
+      .limit(limit)
+      .lean();
+
+    const total = await Income.countDocuments({ userId });
+
+    res.json({
+      total,
+      page,
+      totalPages: Math.ceil(total / limit),
+      incomes
+    });
   } catch (error) {
     res.status(500).json({ message: "Server Error" });
   }
 };
+
 
 // Delete Income Source
 exports.deleteIncome = async (req, res) => {
