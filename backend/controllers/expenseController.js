@@ -31,13 +31,30 @@ exports.addExpense = async (req, res) => {
 // Get All Expense Source
 exports.getAllExpense = async (req, res) => {
   const userId = req.user.id;
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+  const skip = (page - 1) * limit;
+
   try {
-    const expense = await Expense.find({ userId }).sort({ date: -1 }).lean();
-    res.json(expense);
+    const expenses = await Expense.find({ userId })
+      .sort({ date: -1 })
+      .skip(skip)
+      .limit(limit)
+      .lean();
+
+    const total = await Expense.countDocuments({ userId });
+
+    res.json({
+      total,
+      page,
+      totalPages: Math.ceil(total / limit),
+      expenses
+    });
   } catch (error) {
     res.status(500).json({ message: "Server Error" });
   }
 };
+
 
 // Delete Expense Source
 exports.deleteExpense = async (req, res) => {
