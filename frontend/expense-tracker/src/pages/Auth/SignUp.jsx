@@ -47,10 +47,7 @@ const SignUp = () => {
     try {
       // Upload image if present
       if (profilePic) {
-        console.log("Uploading profilePic:", profilePic);
         const imgUploadRes = await uploadImage(profilePic);
-        console.log("Image upload response:", imgUploadRes);
-
         profileImageUrl = imgUploadRes.imageUrl || "";
       }
 
