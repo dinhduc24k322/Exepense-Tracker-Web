@@ -11,6 +11,8 @@ import { IoMdCard } from "react-icons/io";
 import { addThounsandSeparator } from "../../utils/helper";
 import RecentTransactions from "../../components/Dashboard/RecentTransactions";
 import FinanceOverview from "../../components/Dashboard/FinanceOverview";
+import ExpenseTransactions from "../../components/Dashboard/ExpenseTransactions";
+import Last30DaysExpenses from "../../components/Dashboard/Last30DaysExpenses";
 
 const Home = () => {
   useUserAuth();
@@ -44,6 +46,9 @@ const Home = () => {
     fetchDashboardData();
     return () => {};
   }, []);
+  console.log("Dashboard data:", dashboardData);
+  console.log("Last 30 days expenses:", dashboardData?.last30DayExpenses);
+  console.log("Transactions:", dashboardData?.last30DayExpenses?.transactions);
 
   return (
     <DashboardLayout activeMenu="Dashboard">
@@ -72,7 +77,7 @@ const Home = () => {
         </div> */}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-          <RecentTransactions
+          {/* <RecentTransactions
             transactions={dashboardData?.recentTransactions}
             onSeeMore={() => navigate("/expense")}
           />
@@ -81,6 +86,13 @@ const Home = () => {
             totalBalance={dashboardData?.totalBalance || 0}
             totalIncome={dashboardData?.totalIncome || 0}
             totalExpense={dashboardData?.totalExpense || 0}
+          /> */}
+          <ExpenseTransactions
+            transactions={dashboardData?.last30DaysExpenses?.transactions || []}
+            onSeeMore={() => navigate("/expense")}
+          />
+          <Last30DaysExpenses
+            data={dashboardData?.last30DaysExpenses?.transactions || []}
           />
         </div>
       </div>
