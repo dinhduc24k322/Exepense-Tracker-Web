@@ -24,3 +24,7 @@
 * [https://www.mongodb.com/](https://www.mongodb.com/)
 * [https://www.chartjs.org/](https://www.chartjs.org/)
 * [https://jwt.io/](https://jwt.io/)
+* [Postman](https://learning.postman.com/docs/introduction/overview/)
+* [Momentjs](https://momentjs.com/docs/)
+* [Recharts](https://recharts.org/en-US)
+
