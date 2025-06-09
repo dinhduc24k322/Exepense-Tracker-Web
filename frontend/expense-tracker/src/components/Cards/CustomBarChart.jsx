@@ -10,6 +10,7 @@ import {
   Cell,
 } from "recharts";
 import CustomTooltip from "../Charts/CustomTooltip";
+
 const CustomBarChart = ({data}) => {
   // Function to alternate colors
   const getBarColor = (index) => {
