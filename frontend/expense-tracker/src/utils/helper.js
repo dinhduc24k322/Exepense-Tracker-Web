@@ -39,9 +39,8 @@ export const prepareExpenseBarChartData = (data = []) => {
 };
 
 export const prepareIncomeBarChartData = (data = []) => {
-
-    if (!Array.isArray(data)) {
-    console.error('Invalid data passed to prepareIncomeBarChartData:', data);
+  if (!Array.isArray(data)) {
+    console.error("Invalid data passed to prepareIncomeBarChartData:", data);
     return [];
   }
 
@@ -50,9 +49,28 @@ export const prepareIncomeBarChartData = (data = []) => {
   );
 
   const chartData = sortedData.map((item) => ({
-    month: moment(item?.date).format('Do MMM'),
+    month: moment(item?.date).format("Do MMM"),
     amount: item?.amount,
     source: item?.source,
+  }));
+
+  return chartData;
+};
+
+export const prepareExpenseLineChartData = (data) => {
+  if (!Array.isArray(data)) {
+    console.error("Invalid data passed to prepareExpenseLineChartData:", data);
+    return [];
+  }
+
+  const sortedData = [...data].sort(
+    (a, b) => new Date(a.date) - new Date(b.date)
+  );
+
+  const chartData = sortedData.map((item) => ({
+    month: moment(item?.date).format("Do MMM"),
+    amount: item?.amount,
+    category: item?.catageory,
   }));
 
   return chartData;
